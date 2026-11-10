@@ -1,75 +1,66 @@
-# 🍏 AuraOS (Project Linux-Mac Parity)
+# 📜 VellumOS
 
-> **Bridging the macOS Ecosystem Gap on Linux** — Moving beyond superficial themes to achieve true first-party hardware seamlessness, pro-grade preview tooling, and seamless device integration.
-
----
-
-## 🎯 Vision
-
-Many Linux distributions attempt to clone macOS by copying the dock and applying a blurred theme. **This project is different.**
-
-Our mission is to achieve true **functional parity** with macOS by solving the real reasons professionals stay on Mac:
-1. **Zero-Config Driverless Hardware Integration:** AirPrint (IPP Everywhere) & AirScan (eSCL/WSD) out-of-the-box.
-2. **First-Class Core Apps:** A blazing-fast, all-in-one `Preview` app (view, annotate, sign, merge/split PDFs, and AI background removal for images).
-3. **Instant Quick Look:** Spacebar preview for code, markdown, media, 3D models, and archives with zero startup lag.
-4. **ColorSync-grade Display Pipeline:** Per-monitor ICC color profiles and wide-gamut (DCI-P3 / sRGB) color management via Wayland.
-5. **Modern Immutable Base:** Snapshot-based, crash-resilient OS base with time-machine rollback capabilities.
+> **Crafting true macOS functional parity on Linux.**  
+> Named after *Vellum* (the finest grade parchment), VellumOS focuses on precision typography, a pro-grade document/preview suite, and a seamless zero-configuration hardware ecosystem ("It Just Works").
 
 ---
 
-## 🏗️ Architecture & Core Pillars
+## 🎯 The Vision
+
+Most macOS-inspired Linux distributions only skin the desktop to look like Aqua or macOS Sonoma. **VellumOS is fundamentally different.**
+
+We solve the deep architectural and first-party ecosystem gaps that prevent professionals from adopting Linux:
+1. **Zero-Config Hardware Ecosystem:** Native AirPrint (IPP Everywhere) & AirScan (eSCL/WSD) support out-of-the-box.
+2. **First-Party Core Apps (`Vellum-Preview`):** An all-in-one, blazing-fast viewer and editor for PDFs and images (reorder, annotate, sign, merge/split, and instant AI background removal).
+3. **Instant Quick Look:** Native Wayland spacebar preview for documents, code with syntax highlighting, markdown, audio/video, and 3D assets.
+4. **ColorSync-grade Display Architecture:** Per-monitor ICC profile management and wide-gamut (DCI-P3 / sRGB) color mapping.
+5. **Rock-Solid Immutable Base:** Snapshot-driven, rollback-ready system core (Btrfs / bootc).
+
+---
+
+## 🏛️ System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                 CORE APPS & EXPERIENCES                     │
-│  [Aura-Preview]     [Aura-QuickLook]     [Aura-Share]       │
+│                 VELLUM FIRST-PARTY APPS                     │
+│  [Vellum-Preview]     [Vellum-QuickLook]     [Vellum-Share] │
 ├─────────────────────────────────────────────────────────────┤
-│                 INTEGRATION SERVICES                        │
-│  • CUPS + IPP-Everywhere + sane-airscan (Driverless Hub)    │
+│                 ECOSYSTEM & HARDWARE SERVICES               │
+│  • CUPS 2.4+ / IPP-Everywhere + sane-airscan (Driverless)   │
 │  • Wayland Color Management (colord + ICC)                  │
 │  • PipeWire Pro-Audio Stack                                 │
-│  • Btrfs Snapper (Time-Machine UI)                          │
+│  • Btrfs Snapper (Time-Machine Rollback Engine)             │
 ├─────────────────────────────────────────────────────────────┤
 │                 BASE OS LAYER                               │
-│  Fedora Atomic (bootc/ostree) or Arch Minimal Base          │
+│  Fedora Atomic (bootc) / Arch Linux Minimal Base            │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### 1. Unified Preview App (`apps/preview`)
-- **PDF Engine:** High-performance PDFium / MuPDF backend.
-- **Features:** 
-  - Instant multi-page PDF viewing (60+ fps smooth scroll).
-  - Drag-and-drop page reordering, page extraction, and PDF merging.
-  - Form filling and digital signatures (Trackpad / Webcam / Stored).
-  - Image manipulation: batch crop, resize, format conversion (HEIC/WebP/PNG).
-  - Instant Alpha: 1-click background removal via lightweight ONNX model.
+---
 
-### 2. Driverless Printing & Scanning Hub (`services/driverless-print-scan`)
-- Pre-configured `CUPS 2.4+`, `ipp-usb`, and `Avahi` (mDNS) daemon.
-- Zero-driver auto-discovery for all AirPrint and Mopria certified printers.
-- `sane-airscan` integration for network and USB eSCL/WSD scanners without proprietary binary blobs.
-- Simple, beautiful scanning & printing utility inspired by Apple Image Capture.
+## 📁 Repository Structure
 
-### 3. Display & ColorSync (`services/colorsync-wayland`)
-- Native Wayland color management protocols.
-- Automated calibration and ICC profile mapping for DCI-P3 displays.
-
-### 4. Continuity & Sharing
-- Local peer-to-peer sharing (AirDrop equivalent) directly in the file manager context menu.
-- Universal clipboard and device syncing.
+- `apps/`
+  - `preview/` — Vellum Preview (High-performance PDF & Image suite)
+  - `quicklook/` — Spacebar instant file preview daemon
+- `services/`
+  - `driverless-print-scan/` — AirPrint & AirScan automated configuration stack
+  - `colorsync-wayland/` — Color management and display calibration helpers
+- `docs/`
+  - `architecture.md` — Deep technical specification & ecosystem roadmap
 
 ---
 
-## 🗺️ Roadmap
+## 🚀 Roadmap
 
-- [x] Architecture & ecosystem specification definition
-- [ ] Prototype `Aura-Preview` (PDF & Image manipulation core)
-- [ ] Build automated Driverless Print & Scan setup package
-- [ ] Implement QuickLook daemon for Wayland
-- [ ] Configure custom OS Base image (bootc / ostree)
+- [x] Project architecture & technical blueprint
+- [ ] Vellum Preview prototype (PDFium engine + Canvas annotation + Drag-and-drop page manager)
+- [ ] Driverless Print & Scan auto-discovery suite
+- [ ] QuickLook Wayland preview daemon
+- [ ] Immutable base OS builder configuration (bootc / ostree)
 
 ---
 
 ## 📜 License
 
-MIT License. Designed with love for open-source and seamless computing.
+[MIT](LICENSE) © 2026 VivatVibe
