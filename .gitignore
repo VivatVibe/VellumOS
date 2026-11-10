@@ -1,0 +1,21 @@
+# Build and OS files
+*.o
+*.a
+*.so
+target/
+build/
+dist/
+node_modules/
+__pycache__/
+*.pyc
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary & Log files
+*.log
+*.tmp
+.DS_Store
